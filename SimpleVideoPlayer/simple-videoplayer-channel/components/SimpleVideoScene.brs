@@ -3,16 +3,16 @@
 ' 1st function that runs for the scene component on channel startup
 sub init()
   'To see print statements/debug info, telnet on port 8089
-  m.Image       = m.top.findNode("Image")
+  m.Image = m.top.findNode("Image")
   m.ButtonGroup = m.top.findNode("ButtonGroup")
-  m.Details     = m.top.findNode("Details")
-  m.Title       = m.top.findNode("Title")
-  m.Video       = m.top.findNode("Video")
-  m.Warning     = m.top.findNode("WarningDialog")
-  m.Exiter      = m.top.findNode("Exiter")
+  m.Details = m.top.findNode("Details")
+  m.Title = m.top.findNode("Title")
+  m.Video = m.top.findNode("Video")
+  m.Warning = m.top.findNode("WarningDialog")
+  m.Exiter = m.top.findNode("Exiter")
   setContent()
   m.ButtonGroup.setFocus(true)
-  m.ButtonGroup.observeField("buttonSelected","onButtonSelected")
+  m.ButtonGroup.observeField("buttonSelected", "onButtonSelected")
 end sub
 
 sub onButtonSelected()
@@ -21,7 +21,7 @@ sub onButtonSelected()
     m.Video.visible = "true"
     m.Video.control = "play"
     m.Video.setFocus(true)
-  'Exit button pressed'
+    'Exit button pressed'
   else
     m.Exiter.control = "RUN"
   end if
@@ -41,16 +41,16 @@ sub setContent()
   'ContentNode.Length = 1280
   'ContentNode.Title = "Dan Gilbert asks, Why are we happy?"
 
-  m.Image.uri="pkg:/images/CraigVenter-2008.jpg"
+  m.Image.uri = "pkg:/images/CraigVenter-2008.jpg"
   ContentNode = CreateObject("roSGNode", "ContentNode")
   ContentNode.streamFormat = "mp4"
-  ContentNode.url = "http://video.ted.com/talks/podcast/DanGilbert_2004_480.mp4"
-  ContentNode.ShortDescriptionLine1 = "Can we create new life out of our digital universe?"
-  ContentNode.Description = "He walks the TED2008 audience through his latest research into fourth-generation fuels -- biologically created fuels with CO2 as their feedstock. His talk covers the details of creating brand-new chromosomes using digital technology, the reasons why we would want to do this, and the bioethics of synthetic life. A fascinating Q and A with TED's Chris Anderson follows."
+  ContentNode.url = "https://christopheradams.com/chris.MOV"
+  ContentNode.ShortDescriptionLine1 = "Chris creates a simple Roku app"
+  ContentNode.Description = "Chris wanted to learn how to create a simple Roku app. He downloaded the sample video player and started playing around with it. Here is his journey!"
   ContentNode.StarRating = 80
   ContentNode.Length = 1972
-  ContentNode.Title = "Craig Venter asks, Can we create new life out of our digital universe?"
-  ContentNode.subtitleConfig = {Trackname: "pkg:/source/CraigVenter.srt" }
+  ContentNode.Title = "Christopher Adams asks, How do you create a Roku app?"
+  ContentNode.subtitleConfig = { Trackname: "pkg:/source/CraigVenter.srt" }
 
   'm.Image.uri="pkg:/images/BigBuckBunny.jpg"
   'ContentNode = CreateObject("roSGNode", "ContentNode")
@@ -65,20 +65,20 @@ sub setContent()
   m.Video.content = ContentNode
 
   'Change the buttons
-  Buttons = ["Play","Exit"]
+  Buttons = ["Play", "Exit"]
   m.ButtonGroup.buttons = Buttons
 
   'Change the details
   'm.Title.text = "Dan Gilbert asks, Why are we happy?"
   'm.Details.text = "Harvard psychologist Dan Gilbert says our beliefs about what will make us happy are often wrong -- a premise he supports with intriguing research, and explains in his accessible and unexpectedly funny book, Stumbling on Happiness."
 
-  m.Title.text = "Craig Venter asks, Can we create new life out of our digital universe?"
-  m.Details.text =  "He walks the TED2008 audience through his latest research into fourth-generation fuels -- biologically created fuels with CO2 as their feedstock. His talk covers the details of creating brand-new chromosomes using digital technology, the reasons why we would want to do this, and the bioethics of synthetic life. A fascinating Q and A with TED's Chris Anderson follows."
+  m.Title.text = "Christopher Adams asks, How do you create a Roku app?"
+  m.Details.text = "Chris wanted to learn how to create a simple Roku app. He downloaded the sample video player and started playing around with it. Here is his journey!"
 
 end sub
 
 ' Called when a key on the remote is pressed
-function onKeyEvent(key as String, press as Boolean) as Boolean
+function onKeyEvent(key as string, press as boolean) as boolean
   print "in SimpleVideoScene.xml onKeyEvent ";key;" "; press
   if press then
     if key = "back"
