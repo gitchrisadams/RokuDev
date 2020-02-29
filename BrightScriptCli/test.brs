@@ -1,1 +1,1 @@
-print tab(5)"tabbed5"
+print UCase("Hello")

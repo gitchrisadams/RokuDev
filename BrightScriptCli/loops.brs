@@ -19,3 +19,12 @@ For Each n In aa
     Print n;aa[n]
 End For
 
+print "*************************************"
+
+' While Loop
+k = 0
+while k = 0
+    k = 1
+    print "loop once"
+end while
+
