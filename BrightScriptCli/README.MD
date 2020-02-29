@@ -15,3 +15,8 @@ node_modules/brs/bin/cli.js
 ```
 node_modules/brs/bin/cli.js test.brs
 ```
+
+## Current place in developer docs:
+
+https://developer.roku.com/docs/references/brightscript/language/global-string-functions.md
+String(n as Integer)
